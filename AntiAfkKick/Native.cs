@@ -59,7 +59,7 @@ namespace AntiAfkKick
             var hwnd = IntPtr.Zero;
             while (true)
             {
-                hwnd = FindWindowEx(IntPtr.Zero, hwnd, "FFXIVGAME", null);
+                hwnd = FindWindowEx(IntPtr.Zero, hwnd, "EFLaunchUnrealUWindowsClient", null);// Lost Ark: "EFLaunchUnrealUWindowsClient" ffxiv: "FFXIVGAME"
                 if (hwnd == IntPtr.Zero) yield break;
                 yield return hwnd;
             }

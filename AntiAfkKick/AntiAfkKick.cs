@@ -39,7 +39,7 @@ namespace AntiAfkKick
                     Icon = icon,
                     Visible = true,
                     ContextMenu = new ContextMenu(new MenuItem[] {
-                        new MenuItem("AntiAfkKick standalone") { Enabled = false },
+                        new MenuItem("AntiAfkKick - Lost Ark - standalone") { Enabled = false },
                         new MenuItem("-"),
                         new MenuItem("Invoke manually", delegate 
                         {
@@ -49,13 +49,13 @@ namespace AntiAfkKick
                             {
                                 if(Native.GetForegroundWindow() != handle || Native.IdleTimeFinder.GetIdleTime() > 60 * 1000)
                                 {
-                                    str.Add(Native.GetTickCount64() + ": Sending keypress to FFXIV window " + handle.ToString());
+                                    str.Add(Native.GetTickCount64() + ": Sending keypress to LostArk window " + handle.ToString());
                                     Native.Keypress.SendKeycode(handle, Native.Keypress.LControlKey);
                                 }
                             }
                             MessageBox.Show(string.Join("\n", str), "AntiAfkKick standalone");
                         }),
-                        new MenuItem("Report issue", delegate { Process.Start(new ProcessStartInfo() { UseShellExecute=true, FileName="https://github.com/Eternita-S/AntiAfkKick/issues" }); }),
+                        new MenuItem("Report issue", delegate { Process.Start(new ProcessStartInfo() { UseShellExecute=true, FileName="https://github.com/ScarVite/AntiAfkKick" }); }),
                         new MenuItem("Exit", delegate { n.Dispose(); Environment.Exit(0); })
                     }),
                     Text = "AntiAfkKick"
@@ -73,7 +73,7 @@ namespace AntiAfkKick
                                 {
                                     if(Native.GetForegroundWindow() != handle || Native.IdleTimeFinder.GetIdleTime() > 60 * 1000)
                                     {
-                                        Console.WriteLine(Native.GetTickCount64() + ": Sending keypress to FFXIV window " + handle.ToString());
+                                        Console.WriteLine(Native.GetTickCount64() + ": Sending keypress to Lost Ark window " + handle.ToString());
                                         Native.Keypress.SendKeycode(handle, Native.Keypress.LControlKey);
                                     }
                                 }
